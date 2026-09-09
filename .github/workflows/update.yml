@@ -1,0 +1,49 @@
+name: Update
+
+on:
+  schedule:
+    # 03:30 UTC, which is after close of play almost anywhere India have been
+    - cron: "30 3 * * *"
+  workflow_dispatch: {}
+
+# Two runs writing api.json at once is how a sibling repo ended up with three
+# failed pushes in the same second.
+concurrency:
+  group: update-india-cricket
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch results
+        run: python3 scripts/fetch.py
+
+      - name: Add margins, ids and date ranges
+        run: python3 scripts/enrich.py
+
+      - name: Add innings
+        run: python3 scripts/innings.py
+
+      # build.py exits non zero rather than publishing a dataset smaller than
+      # the one already committed
+      - name: Build api.json
+        run: python3 scripts/build.py
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add api.json data/matches.json
+          git diff --cached --quiet && echo "nothing changed" && exit 0
+          git commit -m "🏏 Update match data [skip ci]"
+          git pull --rebase --autostash
+          git push

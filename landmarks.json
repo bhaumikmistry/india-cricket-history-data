@@ -1,0 +1,125 @@
+{
+  "note": "Hand written. Every date and format here was checked against data/matches.json, so a landmark only shows if the match is really in the data on that day.",
+  "landmarks": [
+    {
+      "date": "1932-06-25",
+      "format": "test",
+      "title": "The first Test",
+      "note": "India's first day as a Test nation, at Lord's, three days after being granted status. Lost, but Mohammad Nissar took five in the first innings."
+    },
+    {
+      "date": "1952-02-06",
+      "format": "test",
+      "title": "The first win",
+      "note": "Twenty years and 24 Tests before India won one. Vinoo Mankad took eight in the match at Chennai."
+    },
+    {
+      "date": "1971-03-06",
+      "format": "test",
+      "title": "First win in the Caribbean",
+      "note": "Port of Spain, and a 21 year old Sunil Gavaskar's first series. India had never beaten West Indies anywhere."
+    },
+    {
+      "date": "1971-08-19",
+      "format": "test",
+      "title": "The Oval, 1971",
+      "note": "India's first series win in England, sealed by Chandrasekhar's six for 38."
+    },
+    {
+      "date": "1976-04-07",
+      "format": "test",
+      "title": "406 to win",
+      "note": "The fourth innings chase at Port of Spain that nobody had made before. Viswanath 112, Gavaskar 102."
+    },
+    {
+      "date": "1983-06-25",
+      "format": "odi",
+      "title": "The World Cup",
+      "note": "Bowled out for 183 at Lord's and still beat West Indies. The match that turned India into a cricket economy."
+    },
+    {
+      "date": "1985-03-10",
+      "format": "odi",
+      "title": "Champions of the world",
+      "note": "Melbourne, the World Championship of Cricket, and India beating Pakistan in the final."
+    },
+    {
+      "date": "1986-06-05",
+      "format": "test",
+      "title": "Lord's, again",
+      "note": "Kapil Dev's side won at Lord's and took the series. India would not win in England again for 21 years."
+    },
+    {
+      "date": "2001-03-11",
+      "format": "test",
+      "title": "Eden Gardens",
+      "note": "Following on 274 behind, Laxman made 281 and Dravid 180. Australia's sixteen match winning streak ended here."
+    },
+    {
+      "date": "2002-07-13",
+      "format": "odi",
+      "title": "The shirt at Lord's",
+      "note": "Chasing 326 in the NatWest final, Kaif and Yuvraj got them home with three balls left."
+    },
+    {
+      "date": "2003-03-23",
+      "format": "odi",
+      "title": "The final India lost",
+      "note": "Johannesburg. Ponting made 140 not out and Australia's 359 was never in doubt."
+    },
+    {
+      "date": "2004-03-28",
+      "format": "test",
+      "title": "Multan",
+      "note": "India's first Test win in Pakistan, built on Sehwag's 309, the first triple hundred by an Indian."
+    },
+    {
+      "date": "2007-09-24",
+      "format": "t20i",
+      "title": "The first World T20",
+      "note": "Johannesburg, five runs, Misbah's scoop to Sreesanth, and a format nobody took seriously until that night."
+    },
+    {
+      "date": "2008-11-06",
+      "format": "test",
+      "title": "The Border Gavaskar, and a farewell",
+      "note": "Nagpur, the series sealed, and the last Test for both Kumble's era and Ganguly."
+    },
+    {
+      "date": "2011-04-02",
+      "format": "odi",
+      "title": "Wankhede",
+      "note": "Dhoni promoted himself and finished it with six over long on. India's first World Cup win at home."
+    },
+    {
+      "date": "2013-06-23",
+      "format": "odi",
+      "title": "Champions Trophy",
+      "note": "Birmingham, a twenty over shootout in the rain, and five runs in it at the end."
+    },
+    {
+      "date": "2019-07-09",
+      "format": "odi",
+      "title": "The semi final",
+      "note": "Manchester, 5 for 3 chasing 240, and Jadeja's 77 not quite enough. The reserve day defeat."
+    },
+    {
+      "date": "2021-01-15",
+      "format": "test",
+      "title": "The Gabba",
+      "note": "A side missing most of its first choice bowlers chased 328 at a ground Australia had not lost at since 1988."
+    },
+    {
+      "date": "2023-11-19",
+      "format": "odi",
+      "title": "Ahmedabad",
+      "note": "Ten wins, then the eleventh. 130,000 people went very quiet."
+    },
+    {
+      "date": "2024-06-29",
+      "format": "t20i",
+      "title": "Bridgetown",
+      "note": "Seven runs defended in the last over, and a first world title in thirteen years."
+    }
+  ]
+}
