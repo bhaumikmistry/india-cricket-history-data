@@ -36,14 +36,16 @@
       "format": "odi",
       "title": "The World Cup",
       "note": "Bowled out for 183 at Lord's and still beat West Indies. The match that turned India into a cricket economy.",
-      "trophy": true
+      "trophy": true,
+      "trophyName": "the World Cup"
     },
     {
       "date": "1985-03-10",
       "format": "odi",
       "title": "Champions of the world",
       "note": "Melbourne, the World Championship of Cricket, and India beating Pakistan in the final.",
-      "trophy": true
+      "trophy": true,
+      "trophyName": "the World Championship of Cricket"
     },
     {
       "date": "1986-06-05",
@@ -80,7 +82,8 @@
       "format": "t20i",
       "title": "The first World T20",
       "note": "Johannesburg, five runs, Misbah's scoop to Sreesanth, and a format nobody took seriously until that night.",
-      "trophy": true
+      "trophy": true,
+      "trophyName": "the World T20"
     },
     {
       "date": "2008-11-06",
@@ -93,14 +96,16 @@
       "format": "odi",
       "title": "Wankhede",
       "note": "Dhoni promoted himself and finished it with six over long on. India's first World Cup win at home.",
-      "trophy": true
+      "trophy": true,
+      "trophyName": "the World Cup"
     },
     {
       "date": "2013-06-23",
       "format": "odi",
       "title": "Champions Trophy",
       "note": "Birmingham, a twenty over shootout in the rain, and five runs in it at the end.",
-      "trophy": true
+      "trophy": true,
+      "trophyName": "the Champions Trophy"
     },
     {
       "date": "2019-07-09",
@@ -125,7 +130,8 @@
       "format": "t20i",
       "title": "Bridgetown",
       "note": "Seven runs defended in the last over, and a first world title in thirteen years.",
-      "trophy": true
+      "trophy": true,
+      "trophyName": "the T20 World Cup"
     }
   ]
 }
