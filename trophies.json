@@ -1,0 +1,158 @@
+{
+  "note": "Team trophies won by India's men. Every entry is checked against a real match in this dataset on that date against that opponent, so nothing here can drift from the record. 1984 had no final: India won the group and this is the deciding match.",
+  "trophies": [
+    {
+      "date": "1983-06-25",
+      "competition": "World Cup",
+      "kind": "icc",
+      "opponent": "West Indies",
+      "ground": "Lord's",
+      "format": "odi",
+      "shared": false
+    },
+    {
+      "date": "1984-04-13",
+      "competition": "Asia Cup",
+      "kind": "asia",
+      "opponent": "Pakistan",
+      "ground": "Sharjah",
+      "format": "odi",
+      "shared": false
+    },
+    {
+      "date": "1985-03-10",
+      "competition": "World Championship of Cricket",
+      "kind": "icc",
+      "opponent": "Pakistan",
+      "ground": "Melbourne",
+      "format": "odi",
+      "shared": false
+    },
+    {
+      "date": "1988-11-04",
+      "competition": "Asia Cup",
+      "kind": "asia",
+      "opponent": "Sri Lanka",
+      "ground": "Dhaka",
+      "format": "odi",
+      "shared": false
+    },
+    {
+      "date": "1991-01-04",
+      "competition": "Asia Cup",
+      "kind": "asia",
+      "opponent": "Sri Lanka",
+      "ground": "Eden Gardens",
+      "format": "odi",
+      "shared": false
+    },
+    {
+      "date": "1995-04-14",
+      "competition": "Asia Cup",
+      "kind": "asia",
+      "opponent": "Sri Lanka",
+      "ground": "Sharjah",
+      "format": "odi",
+      "shared": false
+    },
+    {
+      "date": "2002-09-30",
+      "competition": "Champions Trophy",
+      "kind": "icc",
+      "opponent": "Sri Lanka",
+      "ground": "Colombo (RPS)",
+      "format": "odi",
+      "shared": true
+    },
+    {
+      "date": "2007-09-24",
+      "competition": "World T20",
+      "kind": "icc",
+      "opponent": "Pakistan",
+      "ground": "Johannesburg",
+      "format": "t20i",
+      "shared": false
+    },
+    {
+      "date": "2010-06-24",
+      "competition": "Asia Cup",
+      "kind": "asia",
+      "opponent": "Sri Lanka",
+      "ground": "Dambulla",
+      "format": "odi",
+      "shared": false
+    },
+    {
+      "date": "2011-04-02",
+      "competition": "World Cup",
+      "kind": "icc",
+      "opponent": "Sri Lanka",
+      "ground": "Wankhede",
+      "format": "odi",
+      "shared": false
+    },
+    {
+      "date": "2013-06-23",
+      "competition": "Champions Trophy",
+      "kind": "icc",
+      "opponent": "England",
+      "ground": "Birmingham",
+      "format": "odi",
+      "shared": false
+    },
+    {
+      "date": "2016-03-06",
+      "competition": "Asia Cup",
+      "kind": "asia",
+      "opponent": "Bangladesh",
+      "ground": "Mirpur",
+      "format": "t20i",
+      "shared": false
+    },
+    {
+      "date": "2018-09-28",
+      "competition": "Asia Cup",
+      "kind": "asia",
+      "opponent": "Bangladesh",
+      "ground": "Dubai (DICS)",
+      "format": "odi",
+      "shared": false
+    },
+    {
+      "date": "2023-09-17",
+      "competition": "Asia Cup",
+      "kind": "asia",
+      "opponent": "Sri Lanka",
+      "ground": "Colombo (RPS)",
+      "format": "odi",
+      "shared": false
+    },
+    {
+      "date": "2024-06-29",
+      "competition": "T20 World Cup",
+      "kind": "icc",
+      "opponent": "South Africa",
+      "ground": "Bridgetown",
+      "format": "t20i",
+      "shared": false
+    },
+    {
+      "date": "2025-03-09",
+      "competition": "Champions Trophy",
+      "kind": "icc",
+      "opponent": "New Zealand",
+      "ground": "Dubai (DICS)",
+      "format": "odi",
+      "shared": false
+    },
+    {
+      "date": "2025-09-28",
+      "competition": "Asia Cup",
+      "kind": "asia",
+      "opponent": "Pakistan",
+      "ground": "Dubai (DICS)",
+      "format": "t20i",
+      "shared": false
+    }
+  ]
+}

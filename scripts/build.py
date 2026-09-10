@@ -44,6 +44,8 @@ def main():
         results[m["result"]] = results.get(m["result"], 0) + 1
 
     landmarks = json.loads(MARKS.read_text())["landmarks"] if MARKS.exists() else []
+    trophies_path = ROOT / "trophies.json"
+    trophies = json.loads(trophies_path.read_text())["trophies"] if trophies_path.exists() else []
 
     api = {
         "team": "India men",
@@ -62,12 +64,13 @@ def main():
             "last": max(m["date"] for m in matches),
         },
         "landmarks": landmarks,
+        "trophies": trophies,
         "matches": matches,
     }
 
     OUT.write_text(json.dumps(api, separators=(",", ":")))
     kb = OUT.stat().st_size / 1024
-    print(f"api.json: {len(matches)} matches, {len(landmarks)} landmarks, {kb:.0f} KB")
+    print(f"api.json: {len(matches)} matches, {len(landmarks)} landmarks, {len(trophies)} trophies, {kb:.0f} KB")
 
 
 if __name__ == "__main__":
