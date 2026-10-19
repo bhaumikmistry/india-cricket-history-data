@@ -16,24 +16,15 @@ Usage:
 import json
 import re
 import time
-import urllib.request
 from pathlib import Path
 
+from statsguru import HOST, get
+
 FORMATS = {"test": 1, "odi": 2, "t20i": 3}
-UA = (
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/120 Safari/537.36"
-)
 ROOT = Path(__file__).resolve().parent.parent
 MONTHS = {m: i + 1 for i, m in enumerate(
     ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 )}
-
-
-def get(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=60) as res:
-        return res.read().decode("utf-8", errors="ignore")
 
 
 def strip(html):
@@ -68,7 +59,7 @@ def parse_dates(text):
 
 def fetch_results(fmt):
     url = (
-        "https://stats.espncricinfo.com/ci/engine/records/team/match_results.html"
+        f"{HOST}/ci/engine/records/team/match_results.html"
         f"?class={FORMATS[fmt]};id=6;type=team"
     )
     html = get(url)
@@ -142,7 +133,6 @@ def main():
         for r in rows:
             if r["start"]:
                 index[(fmt, r["start"], r["ground"])] = r
-        time.sleep(1.5)
 
     hit = 0
     for m in matches:

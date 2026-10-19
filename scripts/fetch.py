@@ -5,8 +5,8 @@ Source is ESPNcricinfo Statsguru, in the per-match team view. Two passes per
 format: one for India's own totals, one for the opponent's, joined on date and
 ground because that pair is unique for an international.
 
-Statsguru is fetched politely and only when the data is rebuilt, which is at
-most once a day. See docs/data.md for what that means for publishing the
+Statsguru is fetched politely, through statsguru.get, and only when the data
+is rebuilt, which is at most once a day. See docs/data.md for what that means for publishing the
 result.
 
 Usage:
@@ -18,38 +18,19 @@ import json
 import re
 import sys
 import time
-import urllib.request
 from pathlib import Path
+
+from statsguru import HOST, get
 
 INDIA = 6
 FORMATS = {"test": 1, "odi": 2, "t20i": 3}
 PAGE_SIZE = 200
-BASE = "https://stats.espncricinfo.com/ci/engine/stats/index.html"
-UA = (
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/120 Safari/537.36"
-)
+BASE = f"{HOST}/ci/engine/stats/index.html"
 ROOT = Path(__file__).resolve().parent.parent
 
 MONTHS = {m: i + 1 for i, m in enumerate(
     ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 )}
-
-
-def get(url, tries=4):
-    """Statsguru answers 503 when leaned on, so back off rather than give up
-    halfway and leave a half written dataset."""
-    for attempt in range(tries):
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA})
-            with urllib.request.urlopen(req, timeout=60) as res:
-                return res.read().decode("utf-8", errors="ignore")
-        except Exception as e:
-            if attempt == tries - 1:
-                raise
-            wait = 5 * (attempt + 1)
-            print(f"    {e}, retrying in {wait}s", flush=True)
-            time.sleep(wait)
 
 
 def strip(html):
@@ -102,7 +83,6 @@ def fetch_side(class_id, key, value):
         if len(got) < PAGE_SIZE:
             break
         page += 1
-        time.sleep(1.5)  # be a guest, not a load test
     return rows
 
 
@@ -110,7 +90,6 @@ def build(fmt):
     class_id = FORMATS[fmt]
     print(f"  {fmt}: India's rows", flush=True)
     ours = fetch_side(class_id, "team", INDIA)
-    time.sleep(1.5)
     print(f"  {fmt}: opponents' rows", flush=True)
     theirs = fetch_side(class_id, "opposition", INDIA)
 
@@ -148,7 +127,6 @@ def main():
             sys.exit(f"unknown format: {fmt}")
         print(f"{fmt}...", flush=True)
         all_matches.extend(build(fmt))
-        time.sleep(1.5)
 
     all_matches.sort(key=lambda m: (m["date"] or "", m["format"]))
 

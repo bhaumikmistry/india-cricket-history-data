@@ -52,7 +52,8 @@ python3 scripts/innings.py   # innings by innings scores
 python3 scripts/build.py     # summary, landmarks, and the size guard
 ```
 
-Around fifty requests to Statsguru with a pause between each. `build.py` refuses
+Around fifty requests to Statsguru, 10 to 14 seconds apart, all through
+`scripts/statsguru.py`. A full rebuild takes about fifteen minutes. `build.py` refuses
 to publish a dataset smaller than the one already committed, because a
 half finished scrape overwriting a good file is the failure that matters.
 

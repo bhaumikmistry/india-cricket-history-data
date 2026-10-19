@@ -15,36 +15,19 @@ Usage:
 import json
 import re
 import time
-import urllib.request
 from collections import defaultdict
 from pathlib import Path
+
+from statsguru import HOST, get
 
 INDIA = 6
 FORMATS = {"test": 1, "odi": 2, "t20i": 3}
 PAGE_SIZE = 200
-BASE = "https://stats.espncricinfo.com/ci/engine/stats/index.html"
-UA = (
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/120 Safari/537.36"
-)
+BASE = f"{HOST}/ci/engine/stats/index.html"
 ROOT = Path(__file__).resolve().parent.parent
 MONTHS = {m: i + 1 for i, m in enumerate(
     ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 )}
-
-
-def get(url, tries=4):
-    for attempt in range(tries):
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA})
-            with urllib.request.urlopen(req, timeout=60) as res:
-                return res.read().decode("utf-8", errors="ignore")
-        except Exception as e:
-            if attempt == tries - 1:
-                raise
-            wait = 5 * (attempt + 1)
-            print(f"    {e}, retrying in {wait}s", flush=True)
-            time.sleep(wait)
 
 
 def strip(html):
@@ -94,7 +77,6 @@ def fetch_side(class_id, key, value):
         if len(got) < PAGE_SIZE:
             break
         page += 1
-        time.sleep(1.5)
     return rows
 
 
@@ -102,7 +84,6 @@ def collect(fmt):
     class_id = FORMATS[fmt]
     print(f"  {fmt}: India's innings", flush=True)
     ours = fetch_side(class_id, "team", INDIA)
-    time.sleep(1.5)
     print(f"  {fmt}: opponents' innings", flush=True)
     theirs = fetch_side(class_id, "opposition", INDIA)
 
@@ -129,7 +110,6 @@ def main():
         a, b = collect(fmt)
         ours_all.update(a)
         theirs_all.update(b)
-        time.sleep(1.5)
 
     hit = 0
     for m in matches:

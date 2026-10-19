@@ -18,27 +18,37 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    # About fifty requests at 10 to 14s apart, plus backoff if throttled
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Fetch results
-        run: python3 scripts/fetch.py
-
-      - name: Add margins, ids and date ranges
-        run: python3 scripts/enrich.py
-
-      - name: Add innings
-        run: python3 scripts/innings.py
+      # statsguru.py exits 75 when Statsguru is still throttling after backing
+      # off. That is not a bug, so keep yesterday's api.json and stay green
+      # with a warning rather than failing the job every day.
+      - name: Fetch from Statsguru
+        id: fetch
+        run: |
+          set +e
+          python3 scripts/fetch.py && python3 scripts/enrich.py && python3 scripts/innings.py
+          code=$?
+          if [ "$code" -eq 75 ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          exit "$code"
 
       # build.py exits non zero rather than publishing a dataset smaller than
       # the one already committed
       - name: Build api.json
+        if: steps.fetch.outputs.skip != 'true'
         run: python3 scripts/build.py
 
       - name: Commit
+        if: steps.fetch.outputs.skip != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
